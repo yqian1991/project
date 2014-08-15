@@ -1,0 +1,129 @@
+momlen 300    600
+fetal 10000
+femaleY 200000
+
+
+length 300 600
+       3000000 6000000
+
+
+
+/*-----------------------------------------------------*/
+			/*-----------------------------------------------------*/
+			//generate sample genome file for children
+			//strcpy(file,prange->fileName[i][j]);//get the right directory.//printf("the directory must be:%s\n",file);
+			/*strcpy(file1,"genefile/readOfBase.bin");
+			fp_rb=fopen(file1,"r");
+			if(fp_rb==NULL){
+				printf("fp_rb open error\n");
+				return 0;
+			}
+			printf("generating child file...\n");
+			strcpy(file,prange->fileName1[i]);
+			strcpy(file+strlen(file),"child.fa");
+			printf("create file:%s\n",file);
+			fp = fopen64(file,"w");
+			fp1 =fopen("genefile/chr.fa","r");
+			//------generate read data and write to file---------------
+			/*
+			 * input:genome file
+		     * output:
+			*/
+			/*windowsLength=getMomWindowLength( (parameter+i),j,prange);//printf("windowslength 1=%d\n",windowsLength);
+
+			index=0;//index used to track the number of bases in genome files
+			buff = prange->buff;//buff store a window
+			snpPos = snpPosition(prange->genomeLength);
+			count=transitionCount(prange->genomeLength);
+
+			while(index<prange->genomeLength){//read all the bases in a genome
+
+				int windowsLength_adjust=randValue(windowsLength,prange->lenFlex);//adjust length
+				//printf("adjust windowslength=%d\n",windowsLength_adjust);
+
+				int w=0,jg_flag=0;//w count the number of bases in a window, when it >windowslength, we must stop.
+				char ch;//get a single base from genome file
+				while( (w<windowsLength_adjust)&&((ch = fgetc(fp1)) != EOF)&&(jg_flag==0) ){
+
+					if((ch==' ')||(ch=='\t')){
+						continue;
+					}
+					if(ch=='>'){
+						fwrite( "\n", 1, 1, fp );
+						fwrite( ">", 1, 1, fp );
+						fwrite( "\n", 1, 1, fp );
+						jg_flag=1;
+						continue;
+					}
+					if(ch!='\n'){
+						index++;;//index record the bases number
+						prange->buff[w]=ch;//buff[w]=ch;
+						//snp test and process
+						//check the index first
+						int pos=(index/SNP_POSSIBILITY)*SNP_POSSIBILITY;
+						if(index==(pos+snpPos[pos])){//need to process snp
+						//n=index/1000, in n, n*2/3 times should transversion,
+							int i=0, flag=0;
+							for(i=0;i<sizeof(count)/sizeof(int);i++){
+								//printf("snp %d %d\n",index/SNP_POSSIBILITY,count[i]);
+								if((index/SNP_POSSIBILITY)==count[i]){
+									flag=1;break;
+								}
+							}
+							if(flag == 1){
+								prange->buff[w] = transition(prange->buff[w]);
+
+							}else{
+								prange->buff[w] = transversion(prange->buff[w]);
+							}
+						}
+						w++;
+					}//end if( (ch!='\n')&&(ch!='>') )
+				}//end while(w< window)
+				//printf("process window: %s\n",buff);//transition or transversion completed
+				jg_flag=0;
+
+				if(w>prange->readLen){
+					int a=randValue(prange->a,prange->aFlex);//a is the number of reads in single window
+					lineCount=0;
+					while(lineCount<w){
+						fscanf(fp_rb,"%d",&lines[lineCount++]);
+					}
+					int *pos=prange->pos;//pos[i] save the start position of read[i]
+					//printf("read number a=%d \n",a);
+					int num=0;//the index of pos[]
+					pos=generatePos(a,w,prange->readLen);
+					//filter the pos again
+					//pos=filterPos(pos,lines,a,&j);
+					//printf("a=%d,j=%d\n",a,j);
+					for(num=0;num<a;num++){
+						//printf("lines[%d]=%d\n",pos[num],lines[pos[num]]);
+						if( (new_rand()%30)<(lines[pos[num]]) ){//filter the pos again
+							//get read and process to write each read to file
+							char *read=prange->read;
+							read=getRead(pos[num],prange->readLen+1,buff,prange->read);//get the read according to each pos
+							//printf("read[%d]=%s",num,read);
+
+							//printf("error process ");
+							if(random()%10 > 1){
+								read=errorProcess(read);//error bases generated
+							}
+							//printf("read[%d]=%s\n",num,read);
+							//write read to file
+							fwrite(read, sizeof(char), prange->readLen, fp);
+							fwrite( "\n", 1, 1, fp );
+						}//end if (rand()%max<readcoverage)
+
+					}//end for(num=0;num<a;num++)
+				}//end if(w>prange->readLen)
+				else{
+					fwrite(buff, sizeof(char), w, fp);
+				}
+				//printf("\n---------------a window over---------------\n");
+				int b=(prange->momLen)<<1;
+				memset(prange->buff,0,b*sizeof(char));//printf("after memeset:%s\n",buff);
+				//printf("index=%d %d\n",index,prange->genomeLength);
+			}//end while(index< all the genome len)
+			fclose(fp);
+			fclose(fp1);
+			fclose(fp_rb);*/

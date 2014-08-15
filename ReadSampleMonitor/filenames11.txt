@@ -1,0 +1,2 @@
+chr1.fa
+chr2.fa

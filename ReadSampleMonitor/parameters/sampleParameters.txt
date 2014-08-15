@@ -1,0 +1,9 @@
+parentFlag	childFlag	modeFlag
+
+M	B	N
+
+M	B	T
+
+M	G	N
+
+M	G	T

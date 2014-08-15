@@ -1,0 +1,15 @@
+momLen= 10000
+
+lenFlex= 3
+
+a_mom= 50
+
+a_child= 1
+
+aFlex= 0
+
+snp= 2
+
+snpFlex= 0
+
+readlength= 36
